@@ -29,7 +29,7 @@ public class toJson extends HttpServlet {
 		// TODO Auto-generated method stub
 		Exceltojson d = new Exceltojson();
 		response.setCharacterEncoding("utf-8");
-		String filename = request.getServletContext().getRealPath("data\\capbudg.xls");
+		String filename = request.getServletContext().getRealPath("data\\SampleData.xls");
 		response.getWriter().append(d.doWork(filename));
 		
 	}
