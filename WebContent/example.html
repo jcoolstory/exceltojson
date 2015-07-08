@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+<head>
+<script type="text/javascript" src="js/angular.js"></script>
+<script>
+	var app = angular.module('sampleApp',[]);
+	app.controller('mainCtrl',['$scope','$http',function ($scope,$http){
+		$http.get('./toJson').
+		  success(function(data, status, headers, config) {
+			$scope.images =data;
+		  }).
+		  error(function(data, status, headers, config) {
+		  });
+	}]);
+</script>
+<style>
+table{
+    border-collapse:collapse;
+}
+table,th,td{
+    border:1px solid #888;
+}
+</style>
+</head>
+<body ng-controller="mainCtrl">
+<table border=1>
+    <tr ng-repeat="row in images track by $index" >
+        <td ng-repeat="col in row  track by $index">
+            {{col}}
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+
